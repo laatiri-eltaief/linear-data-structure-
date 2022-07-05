@@ -1,0 +1,62 @@
+Algorithm solution 1
+var
+   i,j:integer;
+   sum:integer;
+   set1:array of integer;
+   set2:array of integer;
+  
+    BEGIN
+    read (n)
+    
+sum:=0;
+count:=0;
+
+FOR i FROM 0 TO n STEP 1  DO
+    read set1[i]
+END_FOR
+FOR i FROM 0 TO n STEP 1  DO
+    read set2[i]
+END_FOR
+FOR i FROM 0 TO set1.length-1 STEP 1  DO
+  WHILE (set1[i]<>set2[count] and count<= set2.length-1) DO
+  count+=1
+  END_WHILE
+  
+   if (count=set2.length-1) Then
+   sum:=sum+set1[i]
+   ELSE
+     FOR i FROM 0 TO set2.length-1 STEP 1  DO
+        WHILE (set2[count]<>set1[i] and count <= set1.length-1) DO
+            count+=1
+        END_WHILE
+     if (count=set1.length-1) Then
+     sum:=sum +set2[count]
+END_if
+END_if
+END_FOR
+
+Algorithm solution 2
+var
+HASH_TABLE<Integer,Integer>
+sum:integer;
+i,j:integer;
+set1:array of integer (a);
+set2:array of integer (b);
+BEGIN
+sum:=0;
+htab:<Integer,Integer>;
+FOR i FROM 0 TO set1.length-1 STEP 1 DO
+    htab.insert(set[i],1);
+END_FOR
+FOR j FROM 0 TO set2.length-1 STEP 1 DO
+    if(set1[i]lookup set2.[j]=true)Then
+    htab.get(set1[i],2)
+    END_if
+END_FOR
+FOR i FROM 0 TO set1.length-1 STEP 1  DO
+    if (htab.lookup(set1[i])=1)
+    sum:=sum+set1[i]
+END_FOR
+FOR j FROM 0 TO set2.length-1 STEP 1 DO
+    if (htab.lookup(set2[j]))
+END_FOR
